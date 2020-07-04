@@ -37,7 +37,7 @@ public class ApplicationManager {
         driver = null;
     }
 
-    public boolean isElementPresent(WebDriver driver, By locator) {
+    public boolean isElementPresent(By locator) {
         try {
             driver.findElement(locator);
             return true;
