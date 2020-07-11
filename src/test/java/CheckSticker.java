@@ -13,10 +13,19 @@ public class CheckSticker extends ApplicationManager {
         driver.get("http://localhost/litecart/");
 
         List<WebElement> goods = driver.findElements(By.className("product"));
-        int countGoods = driver.findElements(By.className("sticker")).size();
+        int count_goods = goods.size();
 
-        for (int i = 0; i < goods.size() ; i++){
-            assertEquals(countGoods, goods.size());
+        List<WebElement> stickers = driver.findElements(By.className("sticker"));
+        int sticker_count = stickers.size();
+
+        assertEquals(count_goods, sticker_count);
+
+        for (int i = 0; i < goods.size(); i++) {
+            goods = driver.findElements(By.className("product"));
+            stickers = driver.findElements(By.className("sticker"));
+            goods.get(i);
+            stickers.get(i);
+            goods.get(i).equals(stickers.get(i));
         }
     }
 }
