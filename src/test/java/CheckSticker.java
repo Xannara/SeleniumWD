@@ -16,14 +16,16 @@ public class CheckSticker extends ApplicationManager {
 
         List<WebElement> goods = driver.findElements(className("product"));
         for (int i = 0; i < goods.size(); i++) {
-            goods = driver.findElements(className("product"));
+            goods.get(i);
+            WebElement good;
+            good = driver.findElement(className("product"));
             List<WebElement> stickers;
-            stickers = driver.findElements((By) className("product").findElements((SearchContext) xpath(".//div[contains(@class, 'sticker')]")));
+            stickers = good.findElements(By.xpath(".//div[contains(@class, 'sticker')]"));
 
             for (int j = 0; j < stickers.size(); j++) {
                 int sticker_count = stickers.size();
                 if (sticker_count == 1) {
-                    System.out.println("У товара один стикер");
+                    System.out.println("1 sticker");
                 }
             }
         }
